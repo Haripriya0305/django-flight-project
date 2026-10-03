@@ -1,0 +1,24 @@
+{% extends 'main.html' %}
+{% block content %}
+ <br><br>
+<center>
+    {% if messages %}
+    {% for message in messages %}
+        <p style="color:green;">{{ message }}</p>
+    {% endfor %}
+    {% endif %}
+    {% if error %}
+    <h2 style="color: red;">Username already exist...!</h2>
+    {% endif %}
+    <form method="POST">
+        {% csrf_token %}
+        <label>Username:</label>
+        <input type="text" name="uname"> <br><br>
+        <label>Password:</label>
+        <input type="text" name="pasw"> <br><br>
+        <button type="submit">login</button><br><br>
+        dont' have account<a href="{% url 'register' %}">Register</a>
+        <a href="{% url 'forget_pasw' %}">Forget password</a>
+    </form>
+</center>
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends 'main.html' %}
+
+{% block content %}
+ <br><br>
+<center>
+    <form method="POST">
+    {% csrf_token %}
+
+    {% if new %}
+        <label for="">Username</label>
+        <input type="text" value="{{user.username}}" disabled><br><br>
+
+        <label>New Password</label>
+        <input type="text" name="new_pasw"><br><br>
+
+        <label>Confirm Password</label>
+        <input type="text" name="confirm_pasw"><br><br>
+
+    {% else %}
+
+        <label>Username</label>
+        <input type="text" name="uname"><br><br>
+
+    {% endif %}
+
+    <button type="submit">Reset</button>
+</form>
+   
+</center>    
+   
+
+{% endblock %}

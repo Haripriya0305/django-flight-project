@@ -1,0 +1,15 @@
+{% extends 'main.html' %}
+{% block content %}
+ <br><br>
+<center>
+    <h2>
+        verify : {{ request.user.is_authenticated }}<br><br>
+        First name :{{ request.user.first_name }}<br><br>
+        last name :{{ request.user.last_name }}<br><br>
+        user name :{{ request.user.username }}<br><br>
+        email :{{ request.user.email }}
+    </h2>
+</center>
+<a href="{% url 'update_profile' %}">update profile</a>
+
+{% endblock %}

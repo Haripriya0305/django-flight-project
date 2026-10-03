@@ -1,0 +1,27 @@
+{% extends 'main.html' %}
+{% block content %}
+ <br><br>
+<center>
+    {% if error %}
+    <h2 style="color: red;">Username already exist...!</h2>
+    {% endif %}
+<form method="POST">
+    {% csrf_token %}
+    <br><br>
+    <label>First Name:</label>
+    <input type="text" name="f_name"> <br><br>
+    <label>Lastt Name:</label>
+    <input type="text" name="l_name"> <br><br>
+    <label>Email :</label>
+    <input type="email" name="email"> <br><br>
+    <label>User Name:</label>
+    <input type="text" name="uname"> <br><br>
+    <label>Password:</label>
+    <input type="text" name="pasw"> <br><br>
+    <button type="submit"> Register </button><br><br>
+    Alerady registered?<a href="{% url 'login_' %}">login</a><br><br>
+    <a href="{% url 'reset_pasw' %}">reset password</a>
+    
+</form>
+</center>
+{% endblock %}
